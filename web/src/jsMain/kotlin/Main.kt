@@ -3,11 +3,28 @@ import kotlinx.html.*
 import kotlinx.html.dom.*
 import kotlinx.html.js.onClickFunction
 import kotlinx.html.org.w3c.dom.events.Event
-import org.w3c.dom.get
 
 fun main() {
     document.body!!.append.div {
         navBar()
+        topHeader(socials)
+    }
+}
+
+fun DIV.topHeader(socials: List<Social>) {
+    div {
+        id = "top-header"
+        h1 {
+            +"Comunidad de desarrolladores Android 🇵🇪"
+        }
+        div {
+            id = "social-media-icons"
+            socials.forEach {
+                a(href = it.url, target = "_blank") {
+                    img(src = it.icon, alt = "Facebook")
+                }
+            }
+        }
     }
 }
 

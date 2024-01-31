@@ -1,12 +1,18 @@
 body {
+    margin: 0;
     font-family: 'Google Sans', sans-serif;
     font-size: 16px;
+}
+
+h1 {
+    font-size: 2em;
 }
 
 #navbar {
     width: 100%;
     display: flex;
     align-items: center;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 }
 
 #navbar > * {
@@ -17,7 +23,6 @@ body {
     list-style: none;
     display: flex;
     gap: 1em;
-
 }
 
 #navbar ul li a {
@@ -51,5 +56,46 @@ body {
 
     #navbar #hamburger {
         display: block;
+    }
+}
+
+#top-header {
+    position: relative;
+    background: url('android-header.jpeg') no-repeat center center / cover;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    padding: 50px;
+}
+
+#top-header h1 {
+    margin: 20px;
+}
+
+#social-media-icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    z-index: 2;
+}
+
+#social-media-icons a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+}
+
+#social-media-icons img {
+    max-width: 60%;
+    max-height: 60%;
+}
+
+@media (min-width: 600px) {
+    #social-media-icons a:hover img {
+        max-width: 80%;
+        max-height: 80%;
     }
 }
