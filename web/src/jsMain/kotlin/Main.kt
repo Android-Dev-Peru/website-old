@@ -21,7 +21,7 @@ fun DIV.topHeader(socials: List<Social>) {
             id = "social-media-icons"
             socials.forEach {
                 a(href = it.url, target = "_blank") {
-                    img(src = it.icon, alt = "Facebook")
+                    img(src = "images/${it.icon}", alt = "Facebook")
                 }
             }
         }
