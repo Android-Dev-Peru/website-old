@@ -23,21 +23,27 @@ fun DIV.topHeader() {
     }
 }
 
-
 private fun DIV.quickLinksSection() {
-    div(classes = "home-section") {
-        id = "quick-links-section"
+    customSection(id = "quick-links-section") {
         quickLinks.forEach {
-            quickLink(it, extraClasses = "quick-links-section-item")
+            quickLink(it, classes = "quick-links-section-item")
         }
     }
 }
 
 private fun DIV.highlightSection() {
-    div(classes = "home-section") {
-        id = "highlights-section"
+    customSection(id = "highlights-section") {
         highlightCards.forEach {
             card(caption = "Contenido destacado", content = it)
+        }
+    }
+}
+
+private fun DIV.customSection(id: String, classes: String = "", content: DIV.()->Unit) {
+    section {
+        div(classes = "home-section $classes") {
+            this.id = id
+            content()
         }
     }
 }

@@ -14,8 +14,8 @@ data class QuickLink(
     val rightIcon: String? = null,
 )
 
-fun DIV.quickLink(link: QuickLink, extraClasses: String = "") {
-    div(classes = "quick-link $extraClasses") {
+fun DIV.quickLink(link: QuickLink, classes: String = "") {
+    div(classes = "quick-link $classes") {
         img(
             classes = "left-icon",
             src = "images/${link.leftIcon}",
