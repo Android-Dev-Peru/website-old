@@ -8,6 +8,7 @@ fun DIV.homeContent() {
         topHeader()
         quickLinksSection()
         highlightSection()
+        blogSection()
     }
 }
 
@@ -39,9 +40,21 @@ private fun DIV.highlightSection() {
     }
 }
 
+private fun DIV.blogSection() {
+    customSection(id = "blog-section", classes="home-section-alternate-color") {
+        h2 { +"Publicaciones recientes" }
+        div {
+            id = "blog-section-content"
+            recentBlogPosts.forEach {
+                blogEntry(entry = it, caption = "Artículo")
+            }
+        }
+    }
+}
+
 private fun DIV.customSection(id: String, classes: String = "", content: DIV.()->Unit) {
-    section {
-        div(classes = "home-section $classes") {
+    section(classes) {
+        div(classes = "home-section") {
             this.id = id
             content()
         }
@@ -98,5 +111,26 @@ val highlightCards = listOf(
         image = "survey.png",
         cta = "Mira los resultados",
         url = "https://android-dev-peru.notion.site/2023-Salarios-Mobile-Devs-40be984176ce4fd099cef15e1c8e17c7",
+    ),
+)
+
+val recentBlogPosts = listOf(
+    BlogEntry(
+        title = "Meetup #57: Kotlin Multiplatform is Stable!",
+        url = "https://dev.to/androiddevperu/meetup-57-build-your-first-app-with-kmp-bp0",
+        thumbnail = "https://res.cloudinary.com/practicaldev/image/fetch/s--o8Vcpr03--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_800/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/p5edmwpvxcnryqohd17q.jpeg",
+        description = "El jueves 26 de noviembre de 2023 nos visitó el GDE Yury Camacho desde Bolivia para hablarnos sobre Kotlin Multiplatform.",
+    ),
+    BlogEntry(
+        title = "DevFest 2023 - GDG Open",
+        url = "https://dev.to/androiddevperu/devfest-2023-gdg-open-1b37",
+        thumbnail = "https://res.cloudinary.com/practicaldev/image/fetch/s--A7FMokQZ--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_800/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/x34agc51zzdtnt6x8jbw.jpeg",
+        description = "El 12 de noviembre de 2023, participamos en el DevFest 2023 del GDG Open, en donde elaboramos un taller sobre Jetpack Compose.",
+    ),
+    BlogEntry(
+        title = "Feria de comunidades en BCP",
+        url = "https://dev.to/androiddevperu/feria-de-comunidades-en-bcp-58df",
+        thumbnail = "https://res.cloudinary.com/practicaldev/image/fetch/s--4_TmxZwH--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_800/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/fm8vla3rsxaezcp0qvxp.jpeg",
+        description = "El 22 de noviembre tuvimos la oportunidad de participar en la feria de comunidades que organizó el BCP, donde participaron más de 400 personas",
     ),
 )
