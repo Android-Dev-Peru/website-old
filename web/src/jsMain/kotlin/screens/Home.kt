@@ -1,16 +1,55 @@
-data class CardContent(
-    val title: String,
-    val description: String,
-    val image: String,
-    val cta: String,
-    val url: String,
-)
+package screens
 
-data class QuickLink(
-    val title: String,
-    val url: String,
-    val leftIcon: String,
-    val rightIcon: String? = null,
+import components.*
+import kotlinx.html.*
+
+fun DIV.homeContent() {
+    div {
+        topHeader()
+        quickLinksSection()
+        highlightSection()
+    }
+}
+
+fun DIV.topHeader() {
+    div {
+        id = "top-header"
+        h1 { +"Android Dev Peru" }
+        h2 { +"🇵🇪 Comunidad de desarrolladores Android en Peru y LATAM 🇵🇪" }
+        div {
+            id = "social-media-icons"
+            socials.forEach { socialIcon(it) }
+        }
+    }
+}
+
+
+private fun DIV.quickLinksSection() {
+    div(classes = "home-section") {
+        id = "quick-links-section"
+        quickLinks.forEach {
+            quickLink(it, extraClasses = "quick-links-section-item")
+        }
+    }
+}
+
+private fun DIV.highlightSection() {
+    div(classes = "home-section") {
+        id = "highlights-section"
+        highlightCards.forEach {
+            card(caption = "Contenido destacado", content = it)
+        }
+    }
+}
+
+val socials = listOf(
+    Social("social_wsp.svg", "https://chat.whatsapp.com/Il7yhDYCj8zLVDrK7OpFOm"),
+    Social("social_youtube.svg", "https://www.youtube.com/@AndroidDevPeru"),
+    Social("social_twitter.svg", "https://twitter.com/androiddevperu"),
+    Social("social_instagram.svg", "https://instagram.com/androiddevperu"),
+    Social("social_linkedin.svg", "https://www.linkedin.com/company/android-dev-peru"),
+    Social("social_github.svg", "https://github.com/Android-Dev-Peru"),
+    Social("social_tiktok.svg", "https://tiktok.com/androiddevperu"),
 )
 
 val quickLinks = listOf(
@@ -34,7 +73,7 @@ val quickLinks = listOf(
     ),
 )
 
-val highlightSection = listOf(
+val highlightCards = listOf(
     CardContent(
         title = "Meetup #59",
         description = """
