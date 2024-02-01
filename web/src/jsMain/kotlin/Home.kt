@@ -1,4 +1,4 @@
-data class HighlightedContent(
+data class CardContent(
     val title: String,
     val description: String,
     val image: String,
@@ -6,8 +6,8 @@ data class HighlightedContent(
     val url: String,
 )
 
-val highlightedContent = listOf(
-    HighlightedContent(
+val highlightSection = listOf(
+    CardContent(
         title = "Meetup #59",
         description = """
             Acompañanos en nuestro próximo meetup presencial + virtual.<br><br>
@@ -19,7 +19,7 @@ val highlightedContent = listOf(
         cta = "Regístrate",
         url = "https://www.youtube.com/watch?v=E9UH3_LRjmk",
     ),
-    HighlightedContent(
+    CardContent(
         title = "Encuesta salarial 2023",
         description = "La transparencia puede ayudar a reducir brechas salariales. Este mes realizamos encuestas anónimas y recibimos +100 respuestas de mobile devs en LATAM.",
         image = "survey.png",

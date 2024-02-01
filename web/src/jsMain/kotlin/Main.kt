@@ -68,32 +68,34 @@ fun toggleNav(event: Event) {
 fun DIV.homeContent() {
     div {
         id = "home-content"
-        highlightedContent.forEach { post ->
-            div {
-                id = "highlighted-content"
-                div {
-                    id = "text-content"
-                    span(classes = "caption") {
-                        +"Contenido destacado"
-                    }
-                    h3 { unsafe { +post.title } }
-                    p { unsafe { +post.description } }
-                    div {
-                        id = "cta-container"
-                        a("#") { +post.cta }
-                    }
-                }
-                div {
-                    id = "highlight-image-container"
-                    img(src = "images/${post.image}", alt = post.title) {
-                        id =  "highlight-image"
-                    }
-                }
-
-                onClickFunction = {
-                    window.open(post.url, "_blank")
-                }
-            }
+        highlightSection.forEach {
+            card("Contenido destacado", it)
         }
     }
 }
+
+fun DIV.card(caption: String, content: CardContent) {
+    div(classes = "card") {
+        id = "card-${content.title.asSlug()}"
+
+        div(classes = "left-container") {
+            span { +caption }
+            h3 { unsafe { +content.title } }
+            p { unsafe { +content.description } }
+            div(classes = "cta-container") {
+                a("#") { +content.cta }
+            }
+        }
+        div(classes = "right-container") {
+            img(src = "images/${content.image}", alt = content.title) {
+                id =  "highlight-image"
+            }
+        }
+
+        onClickFunction = {
+            window.open(content.url, "_blank")
+        }
+    }
+}
+
+fun String.asSlug() = this.replace(" ", "-").lowercase()
