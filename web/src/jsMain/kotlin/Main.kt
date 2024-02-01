@@ -8,6 +8,7 @@ fun main() {
     document.body!!.append.div {
         navBar()
         topHeader(socials)
+        homeContent()
     }
 }
 
@@ -61,5 +62,38 @@ fun toggleNav(event: Event) {
         nav.classList.remove("open")
     } else {
         nav.classList.add("open")
+    }
+}
+
+fun DIV.homeContent() {
+    div {
+        id = "home-content"
+        highlightedContent.forEach { post ->
+            div {
+                id = "highlighted-content"
+                div {
+                    id = "text-content"
+                    span(classes = "caption") {
+                        +"Contenido destacado"
+                    }
+                    h3 { unsafe { +post.title } }
+                    p { unsafe { +post.description } }
+                    div {
+                        id = "cta-container"
+                        a("#") { +post.cta }
+                    }
+                }
+                div {
+                    id = "highlight-image-container"
+                    img(src = "images/${post.image}", alt = post.title) {
+                        id =  "highlight-image"
+                    }
+                }
+
+                onClickFunction = {
+                    window.open(post.url, "_blank")
+                }
+            }
+        }
     }
 }
