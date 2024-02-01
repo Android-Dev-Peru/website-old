@@ -1,9 +1,11 @@
 package components
 
+import kotlinx.browser.window
 import kotlinx.html.DIV
 import kotlinx.html.a
 import kotlinx.html.div
 import kotlinx.html.img
+import kotlinx.html.js.onClickFunction
 
 data class QuickLink(
     val title: String,
@@ -18,12 +20,15 @@ fun DIV.quickLink(link: QuickLink, extraClasses: String = "") {
             classes = "left-icon",
             src = "images/${link.leftIcon}",
         )
-        a(link.url) { +link.title }
+        a("#") { +link.title }
         link.rightIcon?.let {
             img(
                 classes = "right-icon",
                 src = "images/$it",
             )
+        }
+        onClickFunction = {
+            window.open(link.url, "_blank")
         }
     }
 }
