@@ -1,0 +1,69 @@
+@import url('../components/card.css');
+@import url('../components/navbar.css');
+
+#top-header {
+    position: relative;
+    background: url('../../images/android-header.jpeg') no-repeat center center / cover;
+    color: #ffffff;
+    text-align: center;
+    padding: 50px;
+}
+
+#top-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: inherit;
+    filter: blur(5px);
+    z-index: -1;
+}
+
+#top-header h1 {
+    margin: 60px 20px;
+}
+
+#social-media-icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    z-index: 2;
+}
+
+#social-media-icons a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+}
+
+#social-media-icons img {
+    max-width: 60%;
+    max-height: 60%;
+}
+
+@media (min-width: 600px) {
+    #social-media-icons a:hover img {
+        max-width: 80%;
+        max-height: 80%;
+    }
+}
+
+#home-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 2em;
+    padding: 2em;
+    max-width: 1200px;
+    font-size: 16px;
+    font-weight: 400;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
