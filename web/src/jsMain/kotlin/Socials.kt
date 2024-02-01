@@ -4,6 +4,7 @@ data class Social(
 )
 
 val socials = listOf(
+    Social("social_wsp.svg", "https://chat.whatsapp.com/Il7yhDYCj8zLVDrK7OpFOm"),
     Social("social_youtube.svg", "https://www.youtube.com/@AndroidDevPeru"),
     Social("social_twitter.svg", "https://twitter.com/androiddevperu"),
     Social("social_instagram.svg", "https://instagram.com/androiddevperu"),

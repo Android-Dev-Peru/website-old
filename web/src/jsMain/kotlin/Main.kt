@@ -67,9 +67,25 @@ fun toggleNav(event: Event) {
 
 fun DIV.homeContent() {
     div {
-        id = "home-content"
+        quickLinksSection()
+        highlightSection()
+    }
+}
+
+fun DIV.quickLinksSection() {
+    div(classes = "home-section") {
+        id = "quick-links-section"
+        quickLinks.forEach {
+            quickLink(it, extraClasses = "quick-links-section-item")
+        }
+    }
+}
+
+fun DIV.highlightSection() {
+    div(classes = "home-section") {
+        id = "highlights-section"
         highlightSection.forEach {
-            card("Contenido destacado", it)
+            card(caption = "Contenido destacado", content = it)
         }
     }
 }
@@ -94,6 +110,22 @@ fun DIV.card(caption: String, content: CardContent) {
 
         onClickFunction = {
             window.open(content.url, "_blank")
+        }
+    }
+}
+
+fun DIV.quickLink(link: QuickLink, extraClasses: String = "") {
+    div(classes = "quick-link $extraClasses") {
+        img(
+            classes = "left-icon",
+            src = "images/${link.leftIcon}",
+        )
+        a(link.url) { +link.title }
+        link.rightIcon?.let {
+            img(
+                classes = "right-icon",
+                src = "images/$it",
+            )
         }
     }
 }

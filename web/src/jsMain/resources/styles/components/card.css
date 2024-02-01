@@ -18,10 +18,11 @@
 .card h3 {
     font-size: 32px;
     font-weight: 600;
-    margin: 8px;
+    margin: 8px 0px;
 }
 
 .card span {
+    font-size: 14px;
     text-transform: uppercase;
 }
 
@@ -52,8 +53,7 @@
     border-radius: 96px;
     color: black;
     text-decoration: none;
-    padding: 10px 20px;
-    padding: 10px 15px; /* Adjust the padding as needed */
+    padding: 10px 15px;
     display: inline;
 }
 
