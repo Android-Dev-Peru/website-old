@@ -1,6 +1,7 @@
 package screens
 
 import components.*
+import data.Links
 import kotlinx.html.*
 
 fun DIV.homeContent() {
@@ -41,8 +42,14 @@ private fun DIV.highlightSection() {
 }
 
 private fun DIV.blogSection() {
-    customSection(id = "blog-section", classes="home-section-alternate-color") {
-        h2 { +"Publicaciones recientes" }
+    customSection(id = "blog-section", classes="alternate-background") {
+        div {
+            id = "blog-section-header"
+            h2 { +"Artículos recientes" }
+            p { +"¿Te perdiste algún evento? No hay problema - ponte al día con las últimas novedades de nuestra comunidad" }
+            primaryButton(text = "Ver todos los artículos", href = Links.DevTo)
+        }
+
         div {
             id = "blog-section-content"
             recentBlogPosts.forEach {
@@ -62,13 +69,13 @@ private fun DIV.customSection(id: String, classes: String = "", content: DIV.()-
 }
 
 val socials = listOf(
-    Social("social_wsp.svg", "https://chat.whatsapp.com/Il7yhDYCj8zLVDrK7OpFOm"),
-    Social("social_youtube.svg", "https://www.youtube.com/@AndroidDevPeru"),
-    Social("social_twitter.svg", "https://twitter.com/androiddevperu"),
-    Social("social_instagram.svg", "https://instagram.com/androiddevperu"),
-    Social("social_linkedin.svg", "https://www.linkedin.com/company/android-dev-peru"),
-    Social("social_github.svg", "https://github.com/Android-Dev-Peru"),
-    Social("social_tiktok.svg", "https://tiktok.com/androiddevperu"),
+    Social("social_wsp.svg", Links.WhatsApp),
+    Social("social_youtube.svg", Links.YouTube),
+    Social("social_twitter.svg", Links.Twitter),
+    Social("social_instagram.svg", Links.Instagram),
+    Social("social_linkedin.svg", Links.LinkedIn),
+    Social("social_github.svg", Links.GitHub),
+    Social("social_tiktok.svg", Links.TikTok),
 )
 
 val quickLinks = listOf(
@@ -132,5 +139,11 @@ val recentBlogPosts = listOf(
         url = "https://dev.to/androiddevperu/feria-de-comunidades-en-bcp-58df",
         thumbnail = "https://res.cloudinary.com/practicaldev/image/fetch/s--4_TmxZwH--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_800/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/fm8vla3rsxaezcp0qvxp.jpeg",
         description = "El 22 de noviembre tuvimos la oportunidad de participar en la feria de comunidades que organizó el BCP, donde participaron más de 400 personas",
+    ),
+    BlogEntry(
+        title = "Meetup #56: Bluetooth desde 0",
+        url = "https://dev.to/androiddevperu/meetup-56-controlando-bluetooh-desde-0-3j27",
+        thumbnail = "https://res.cloudinary.com/practicaldev/image/fetch/s--AL-Z6Dmp--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_800/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/xd3pk3kbay51di61bkiv.jpeg",
+        description = "El 30 de octubre, tuvimos una charla virtual!, en nuestro meetup #56 en el cual Hansy Schmitt nos compartió sus conocimientos de Bluetooth."
     ),
 )
