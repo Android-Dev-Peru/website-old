@@ -32,7 +32,7 @@ fun DIV.card(caption: String, content: CardContent) {
         }
 
         onClickFunction = {
-            window.open(content.url, "_blank")
+            window.location.href = content.url
         }
     }
 }

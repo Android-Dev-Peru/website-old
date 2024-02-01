@@ -9,7 +9,7 @@ data class Social(
 )
 
 fun DIV.socialIcon(social: Social) {
-    a(href = social.url, target = "_blank") {
+    a(href = social.url) {
         img(src = "images/${social.icon}", alt = social.name)
     }
 }
