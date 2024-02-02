@@ -19,12 +19,14 @@ fun DIV.quickLink(link: QuickLink, classes: String = "") {
         img(
             classes = "left-icon",
             src = "images/${link.leftIcon}",
+            alt = "", // no alt text for decorative images
         )
         a("#") { +link.title }
         link.rightIcon?.let {
             img(
                 classes = "right-icon",
                 src = "images/$it",
+                alt = "", // no alt text for decorative images
             )
         }
         onClickFunction = {

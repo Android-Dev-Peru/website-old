@@ -5,7 +5,11 @@ import utils.asSlug
 
 fun DIV.socialIcon(social: Social) {
     a(href = social.url) {
-        img(src = "images/${social.icon}", alt = social.name)
+        attributes["aria-label"] = "Visit us on ${social.name}"
+        img(
+            src = "images/${social.icon}",
+            alt = "" // handling accessibility through parent
+        )
     }
 }
 
