@@ -3,6 +3,7 @@
 @import url('../components/navbar.css');
 @import url('../components/blog-entry.css');
 @import url('../components/buttons.css');
+@import url('../components/organizers.css');
 
 #top-header {
     position: relative;
@@ -106,6 +107,26 @@
     padding: 2em;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 2em;
+    padding: 2em;
+    padding-top: 0;
+}
+
+#organizers-section {
+    display: flex;
+    padding-top: 4em;
+    align-items: flex-start;
+}
+
+#organizers-section #organizers-section-header {
+    flex: 1;
+}
+
+#organizers-section #organizers-section-content {
+    flex: 2;
+    padding: 2em;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 2em;
     padding: 2em;
     padding-top: 0;

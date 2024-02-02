@@ -10,6 +10,7 @@ fun DIV.homeContent() {
         quickLinksSection()
         highlightSection()
         blogSection()
+        organizersSection()
     }
 }
 
@@ -54,6 +55,22 @@ private fun DIV.blogSection() {
             id = "blog-section-content"
             recentBlogPosts.forEach {
                 blogEntry(entry = it, caption = "Artículo")
+            }
+        }
+    }
+}
+
+private fun DIV.organizersSection() {
+    customSection(id = "organizers-section") {
+        div {
+            id = "organizers-section-header"
+            h2 { +"Organizadores" }
+            p { +"Conoce a las personas que hacen posible nuestra comunidad" }
+        }
+        div {
+            id = "organizers-section-content"
+            organizers.forEach {
+                organizer(it)
             }
         }
     }
@@ -145,5 +162,50 @@ val recentBlogPosts = listOf(
         url = "https://dev.to/androiddevperu/meetup-56-controlando-bluetooh-desde-0-3j27",
         thumbnail = "https://res.cloudinary.com/practicaldev/image/fetch/s--AL-Z6Dmp--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_800/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/xd3pk3kbay51di61bkiv.jpeg",
         description = "El 30 de octubre, tuvimos una charla virtual!, en nuestro meetup #56 en el cual Hansy Schmitt nos compartió sus conocimientos de Bluetooth."
+    ),
+)
+
+val organizers = listOf(
+    Organizer(
+        name = "Eduardo",
+        lastName = "Medina",
+        photo = "organizer-edu.png",
+    ),
+    Organizer(
+        name = "Bruno",
+        lastName = "Aybar",
+        photo = "organizer-bruno.png",
+    ),
+    Organizer(
+        name = "Jose Flavio",
+        lastName = "Quispe",
+        photo = "organizer-flavio.png",
+    ),
+    Organizer(
+        name = "Daniel",
+        lastName = "Anaya",
+        photo = "organizer-daniel.png",
+    ),
+    Organizer(
+        name = "Freddy",
+        lastName = "Lazo",
+        photo = "organizer-freddy.png",
+    ),
+    Organizer(
+        name = "Pedro",
+        lastName = "Rau",
+        alias = "Krum",
+        photo = "organizer-pedro.png",
+    ),
+    Organizer(
+        name = "Josue",
+        lastName = "Durand",
+        photo = "organizer-josue.png",
+    ),
+    Organizer(
+        name = "Carlo",
+        lastName = "Huaman",
+        alias = "Tohure",
+        photo = "organizer-carlo.png",
     ),
 )

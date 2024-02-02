@@ -6,7 +6,6 @@ import screens.homeContent
 
 fun main() {
     document.body!!.append.div {
-        navBar()
         homeContent()
     }
 }
