@@ -1,0 +1,26 @@
+body {
+    margin: 0;
+    font-family: 'Google Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+h1 {
+    font-size: 60px;
+}
+
+h2 {
+    font-size: 40px;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 32px;
+    font-weight: 600;
+}
+
+span {
+    font-size: 14px;
+    color: rgb(95, 99, 104);
+    text-transform: uppercase;
+}

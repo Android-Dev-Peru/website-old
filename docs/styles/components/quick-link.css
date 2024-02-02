@@ -1,0 +1,35 @@
+.quick-link {
+    border: 2px solid black;
+    border-radius: 96px;
+    border-color: rgb(218, 220, 224);
+    padding: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.quick-link:hover {
+    background-color: rgb(230, 230, 230);
+    color: white;
+}
+
+.quick-link .left-icon {
+    max-height: 30px;
+    align-self: center;
+    margin-right: 16px;
+}
+
+.quick-link .right-icon {
+    max-height: 30px;
+    align-self: center;
+    margin-left: auto;
+}
+
+.quick-link a {
+    color: black;
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: none;
+    align-self: center;
+}
