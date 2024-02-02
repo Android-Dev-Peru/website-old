@@ -59,3 +59,29 @@
     max-height: 150px;
     align-self: center;
 }
+
+@media (max-width: 600px) {
+    .card {
+        flex-direction: column;
+        height: auto;
+        align-items: flex-end;
+    }
+
+    .card .left-container {
+        margin: 0px;
+    }
+
+    .card .right-container {
+        margin: 0px;
+    }
+
+    .card p {
+        margin-bottom: 40px;
+    }
+
+    .card img {
+        max-height: 60px;
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+}
