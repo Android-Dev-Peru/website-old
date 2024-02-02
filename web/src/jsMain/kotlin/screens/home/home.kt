@@ -17,6 +17,10 @@ fun DIV.homeContent() {
 fun DIV.topHeader() {
     div {
         id = "top-header"
+        img {
+            src = "logo.svg"
+            alt = "Logo de Android Dev Peru"
+        }
         h1 { +"Android Dev Peru" }
         h2 { +"🇵🇪 Comunidad de desarrolladores Android en Peru y LATAM 🇵🇪" }
         div {
@@ -138,9 +142,9 @@ val highlightCards = listOf(
         title = "Meetup #59",
         description = """
             Acompañanos en nuestro próximo meetup presencial + virtual.<br><br>
-            🗓 fecha: miércoles 21 de agosto<br>
-            ⏰ hora: 7PM 🇵🇪 🇨🇴<br>
-            🏢 local: Globant<br>
+            🗓 Fecha: miércoles 21 de febrero<br>
+            ⏰ Hora: 7PM 🇵🇪 🇨🇴<br>
+            🏢 Local: Globant<br>
         """.trimIndent(),
         image = "reunion.png",
         cta = "Regístrate",
