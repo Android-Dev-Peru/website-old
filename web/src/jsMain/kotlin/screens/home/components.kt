@@ -1,13 +1,13 @@
-package components
+package screens.home
 
 import kotlinx.html.*
+import utils.asSlug
 
-data class BlogEntry(
-    val title: String,
-    val url: String,
-    val thumbnail: String,
-    val description: String,
-)
+fun DIV.socialIcon(social: Social) {
+    a(href = social.url) {
+        img(src = "images/${social.icon}", alt = social.name)
+    }
+}
 
 fun DIV.blogEntry(entry: BlogEntry, caption: String) {
     div(classes = "blog-entry") {
@@ -26,4 +26,16 @@ fun DIV.blogEntry(entry: BlogEntry, caption: String) {
             p { +entry.description }
         }
     }
+}
+
+fun DIV.organizer(organizer: Organizer) {
+    div(classes = "organizer-entry") {
+        id = "organizer-${organizer.alias ?: organizer.fullName.asSlug()}"
+        img {
+            src = "images/${organizer.photo}"
+            alt = "${organizer.name} ${organizer.lastName}"
+        }
+        span { +"${organizer.name} ${organizer.lastName}" }
+    }
+
 }

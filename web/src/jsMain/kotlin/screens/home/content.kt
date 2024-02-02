@@ -1,4 +1,4 @@
-package screens
+package screens.home
 
 import components.*
 import data.Links
