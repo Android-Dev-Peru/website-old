@@ -61,16 +61,33 @@ private fun DIV.blogSection() {
 }
 
 private fun DIV.organizersSection() {
-    customSection(id = "organizers-section") {
-        div {
-            id = "organizers-section-header"
-            h2 { +"Organizadores" }
-            p { +"Conoce a las personas que hacen posible nuestra comunidad" }
+    customSection(id = "current-organizers-section") {
+        div(classes = "organizers-section") {
+            div {
+                id = "organizers-section-header"
+                h2 { +"Equipo organizador" }
+                p { +"Ellos son quienes se encargan de mantener la comunidad activa mes a mes." }
+            }
+            div {
+                id = "organizers-section-content"
+                organizers.forEach {
+                    organizer(it)
+                }
+            }
         }
-        div {
-            id = "organizers-section-content"
-            organizers.forEach {
-                organizer(it)
+    }
+    customSection(id = "legacy-organizers-section", classes = "alternate-background") {
+        div(classes = "organizers-section legacy-organizers-section") {
+            div {
+                id = "organizers-section-header"
+                h2 { +"Equipo legacy" }
+                p { +"Si bien ya no nos acompañan en el equipo, agradecemos mucho el apoyo de nuestros organizadores retirados ❤️" }
+            }
+            div {
+                id = "organizers-section-content"
+                legacyOrganizers.forEach {
+                    organizer(it)
+                }
             }
         }
     }
@@ -169,43 +186,51 @@ val organizers = listOf(
     Organizer(
         name = "Eduardo",
         lastName = "Medina",
-        photo = "organizer-edu.png",
+        photo = "organizer_edu.png",
     ),
     Organizer(
         name = "Bruno",
         lastName = "Aybar",
-        photo = "organizer-bruno.png",
+        photo = "organizer_bruno.jpeg",
     ),
     Organizer(
         name = "Jose Flavio",
         lastName = "Quispe",
-        photo = "organizer-flavio.png",
+        photo = "organizer_flavio.jpeg",
     ),
     Organizer(
         name = "Daniel",
         lastName = "Anaya",
-        photo = "organizer-daniel.png",
+        photo = "organizer_daniel.jpeg",
     ),
     Organizer(
         name = "Freddy",
         lastName = "Lazo",
-        photo = "organizer-freddy.png",
+        photo = "organizer_freddy.jpeg",
     ),
     Organizer(
         name = "Pedro",
         lastName = "Rau",
         alias = "Krum",
-        photo = "organizer-pedro.png",
+        photo = "organizer_krum.jpeg",
     ),
     Organizer(
         name = "Josue",
         lastName = "Durand",
-        photo = "organizer-josue.png",
+        photo = "organizer_josue.jpeg",
     ),
     Organizer(
         name = "Carlo",
         lastName = "Huaman",
         alias = "Tohure",
-        photo = "organizer-carlo.png",
+        photo = "organizer_tohure.jpeg",
+    ),
+)
+
+val legacyOrganizers = listOf(
+    Organizer(
+        name = "Jonathan",
+        lastName = "Nolasco",
+        photo = "organizer_nolasco.jpeg",
     ),
 )

@@ -112,17 +112,21 @@
     padding-top: 0;
 }
 
-#organizers-section {
+.organizers-section {
     display: flex;
     padding-top: 4em;
     align-items: flex-start;
 }
 
-#organizers-section #organizers-section-header {
+.legacy-organizers-section {
+    padding-top: 0px;
+}
+
+.organizers-section #organizers-section-header {
     flex: 1;
 }
 
-#organizers-section #organizers-section-content {
+.organizers-section #organizers-section-content {
     flex: 2;
     padding: 2em;
     display: grid;
