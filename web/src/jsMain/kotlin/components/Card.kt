@@ -13,8 +13,8 @@ data class CardContent(
     val url: String,
 )
 
-fun DIV.card(caption: String, content: CardContent) {
-    div(classes = "card") {
+fun DIV.card(caption: String, content: CardContent, classes: String = "") {
+    div(classes = "card $classes") {
         id = "card-${content.title.asSlug()}"
 
         div(classes = "left-container") {

@@ -22,7 +22,7 @@ fun DIV.topHeader() {
             alt = "Logo de Android Dev Peru"
         }
         h1 { +"Android Dev Peru" }
-        h2 { +"🇵🇪 Comunidad de desarrolladores Android en Peru y LATAM 🇵🇪" }
+        h2 { +"Comunidad de desarrolladores Android en Peru y LATAM" }
         div {
             id = "social-media-icons"
             socials.forEach { socialIcon(it) }
@@ -41,7 +41,7 @@ private fun DIV.quickLinksSection() {
 private fun DIV.highlightSection() {
     customSection(id = "highlights-section") {
         highlightCards.forEach {
-            card(caption = "Contenido destacado", content = it)
+            card(caption = "Contenido destacado", content = it, classes = "highlights-section-item")
         }
     }
 }
