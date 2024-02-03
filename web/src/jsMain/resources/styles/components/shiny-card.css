@@ -1,0 +1,36 @@
+.shiny-card {
+    background: url(/images/droid.svg) no-repeat right 57px bottom -53px / 200px;
+    box-shadow: 0px 0px 10px 0px #A5C742;
+    position:relative;
+    border-radius: 10px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: center;
+    animation: shadow-pulse 1s infinite;
+}
+
+@keyframes shadow-pulse {
+    0% { box-shadow: 0px 0px 10px 0px #A5C742; }
+    50% { box-shadow: 0px 0px 20px 0px #A5C742; }
+    100% { box-shadow: 0px 0px 10px 0px #A5C742; }
+}
+
+.shiny-card h2, .shiny-card h3 {
+    margin: 8px;
+}
+
+.shiny-card h2 {
+    font-weight: 800;
+    font-size: 60px;
+    color: #38761d;
+}
+
+.shiny-card span {
+    font-size: 20px;
+}
+
+.shiny-card:hover {
+    animation-play-state: paused;
+}

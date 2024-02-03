@@ -11,6 +11,7 @@ fun DIV.homeContent() {
         topHeader()
         quickLinksSection()
         highlightSection()
+        saveTheDate()
         playlistsSection()
         blogSection()
         organizersSection()
@@ -45,6 +46,16 @@ private fun DIV.highlightSection() {
     customSection(id = "highlights-section") {
         highlightCards.forEach {
             card(caption = "Contenido destacado", content = it, classes = "highlights-section-item")
+        }
+    }
+}
+
+private fun DIV.saveTheDate() {
+    customSection(id = "save-the-date-section", sectionClasses = "alternate-background") {
+        div(classes = "shiny-card") {
+            h2 { +"ANDROID DEV CONF" }
+            span { +"Sábado 26 de Octubre, 2024" }
+            span { +"Lima, Peru 🇵🇪" }
         }
     }
 }
