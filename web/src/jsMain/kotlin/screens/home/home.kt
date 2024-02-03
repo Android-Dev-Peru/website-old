@@ -1,9 +1,7 @@
 package screens.home
 
 import components.*
-import data.Links
-import data.Playlists
-import data.RecentBlogs
+import data.*
 import kotlinx.html.*
 
 fun DIV.homeContent() {
@@ -29,15 +27,15 @@ fun DIV.topHeader() {
         h2 { +"Comunidad de desarrolladores Android en Peru y LATAM" }
         div {
             id = "social-media-icons"
-            socials.forEach { socialIcon(it) }
+            Socials.entries.forEach { socialIcon(it.data) }
         }
     }
 }
 
 private fun DIV.quickLinksSection() {
     customSection(id = "quick-links-section") {
-        quickLinks.forEach {
-            quickLink(it, classes = "quick-links-section-item")
+        QuickLinks.entries.forEach {
+            quickLink(it.data, classes = "quick-links-section-item")
         }
     }
 }
@@ -64,7 +62,7 @@ private fun DIV.playlistsSection() {
     customSection(id = "events-section", classes = "grid-section") {
         div(classes = "grid-section-header") {
             h2 { +"Playlists" }
-            p { +"No te pierdas todo el material exclusivo que la comunidad nos ha compartido a lo largo de lo años." }
+            p { +"No te pierdas el material exclusivo que la comunidad nos ha compartido a lo largo de lo años." }
             primaryButton(text = "Síguenos en Youtube", href = Links.YouTube)
         }
         div(classes = "grid-section-content") {
@@ -102,8 +100,8 @@ private fun DIV.organizersSection() {
             }
             div {
                 id = "organizers-section-content"
-                organizers.forEach {
-                    organizer(it)
+                Organizers.entries.forEach {
+                    organizer(it.data)
                 }
             }
         }
@@ -117,8 +115,8 @@ private fun DIV.organizersSection() {
             }
             div {
                 id = "organizers-section-content"
-                legacyOrganizers.forEach {
-                    organizer(it)
+                LegacyOrganizers.entries.forEach {
+                    organizer(it.data)
                 }
             }
         }
@@ -133,37 +131,6 @@ private fun DIV.customSection(id: String, sectionClasses: String = "", classes: 
         }
     }
 }
-
-val socials = listOf(
-    Social("social_wsp.svg", Links.WhatsApp),
-    Social("social_youtube.svg", Links.YouTube),
-    Social("social_twitter.svg", Links.Twitter),
-    Social("social_instagram.svg", Links.Instagram),
-    Social("social_linkedin.svg", Links.LinkedIn),
-    Social("social_github.svg", Links.GitHub),
-    Social("social_tiktok.svg", Links.TikTok),
-)
-
-val quickLinks = listOf(
-    QuickLink(
-        title = "Únete en WhatsApp",
-        url = "https://chat.whatsapp.com/Il7yhDYCj8zLVDrK7OpFOm",
-        leftIcon = "social_wsp_filled.svg",
-        rightIcon = "icon_external_link.svg",
-    ),
-    QuickLink(
-        title = "Da una charla",
-        url = "https://github.com/Android-Dev-Peru/propuestas-meetup/issues/new?assignees=&labels=&projects=&template=plantilla-de-propuesta.md&title=Charla%3A+T%C3%ADtulo+de+la+charla",
-        leftIcon = "icon_speaker.png",
-        rightIcon = "icon_external_link.svg",
-    ),
-    QuickLink(
-        title = "Síguenos en LinkedIn",
-        url = "https://www.linkedin.com/company/android-dev-peru",
-        leftIcon = "social_linkedin_filled.svg",
-        rightIcon = "icon_external_link.svg",
-    ),
-)
 
 val highlightCards = listOf(
     CardContent(
@@ -206,56 +173,3 @@ val recentBlogPosts = RecentBlogs.entries.map {
         caption = "Artículo",
     )
 }
-
-val organizers = listOf(
-    Organizer(
-        name = "Eduardo",
-        lastName = "Medina",
-        photo = "organizer_edu.png",
-    ),
-    Organizer(
-        name = "Bruno",
-        lastName = "Aybar",
-        photo = "organizer_bruno.jpeg",
-    ),
-    Organizer(
-        name = "Jose Flavio",
-        lastName = "Quispe",
-        photo = "organizer_flavio.jpeg",
-    ),
-    Organizer(
-        name = "Daniel",
-        lastName = "Anaya",
-        photo = "organizer_daniel.jpeg",
-    ),
-    Organizer(
-        name = "Freddy",
-        lastName = "Lazo",
-        photo = "organizer_freddy.jpeg",
-    ),
-    Organizer(
-        name = "Pedro",
-        lastName = "Rau",
-        alias = "Krum",
-        photo = "organizer_krum.jpeg",
-    ),
-    Organizer(
-        name = "Josue",
-        lastName = "Durand",
-        photo = "organizer_josue.jpeg",
-    ),
-    Organizer(
-        name = "Carlo",
-        lastName = "Huaman",
-        alias = "Tohure",
-        photo = "organizer_tohure.jpeg",
-    ),
-)
-
-val legacyOrganizers = listOf(
-    Organizer(
-        name = "Jonathan",
-        lastName = "Nolasco",
-        photo = "organizer_nolasco.jpeg",
-    ),
-)

@@ -1,7 +1,10 @@
 package data
 
+import components.QuickLink
 import screens.home.BlogEntry
+import screens.home.Organizer
 import screens.home.Playlist
+import screens.home.Social
 
 object Links {
     const val DevTo = "https://dev.to/androiddevperu"
@@ -12,6 +15,43 @@ object Links {
     const val YouTube = "https://www.youtube.com/@AndroidDevPeru"
     const val TikTok = "https://www.tiktok.com/@androiddevperu"
     const val WhatsApp = "https://chat.whatsapp.com/Il7yhDYCj8zLVDrK7OpFOm"
+}
+
+enum class Socials(val data: Social) {
+    SocialWhatsApp(Social(icon = "social_wsp.svg", url = Links.WhatsApp)),
+    SocialYouTube(Social(icon = "social_youtube.svg", url = Links.YouTube)),
+    SocialTwitter(Social(icon = "social_twitter.svg", url = Links.Twitter)),
+    SocialInstagram(Social(icon = "social_instagram.svg", url = Links.Instagram)),
+    SocialLinkedIn(Social(icon = "social_linkedin.svg", url = Links.LinkedIn)),
+    SocialGitHub(Social(icon = "social_github.svg", url = Links.GitHub)),
+    SocialTikTok(Social(icon = "social_tiktok.svg", url = Links.TikTok)),
+}
+
+enum class QuickLinks(val data: QuickLink) {
+    JoinWhatsApp(
+        QuickLink(
+            title = "Únete en WhatsApp",
+            url = Links.WhatsApp,
+            leftIcon = "social_wsp_filled.svg",
+            rightIcon = "icon_external_link.svg",
+        )
+    ),
+    GiveATalk(
+        QuickLink(
+            title = "Da una charla",
+            url = "https://github.com/Android-Dev-Peru/propuestas-meetup/issues/new?assignees=&labels=&projects=&template=plantilla-de-propuesta.md&title=Charla%3A+T%C3%ADtulo+de+la+charla",
+            leftIcon = "icon_speaker.png",
+            rightIcon = "icon_external_link.svg",
+        )
+    ),
+    FollowLinkedIn(
+        QuickLink(
+            title = "Síguenos en LinkedIn",
+            url = Links.LinkedIn,
+            leftIcon = "social_linkedin_filled.svg",
+            rightIcon = "icon_external_link.svg",
+        )
+    ),
 }
 
 enum class Playlists(val data: Playlist) {
@@ -28,7 +68,7 @@ enum class Playlists(val data: Playlist) {
             title = "Android desde cero",
             url = "https://www.youtube.com/playlist?list=PLdIqyKXhJsgTgCnAO_j3y9Fvz5KT48K81",
             thumbnail = "images/thumbnail_workshop.png",
-            description = "Talleres gratis para aprender Android desde cero, hechos por la comunidad.",
+            description = "Workship gratuito para aprender Android desde cero, hecho por la comunidad.",
         )
     ),
 }
@@ -64,6 +104,77 @@ enum class RecentBlogs(val data: BlogEntry) {
             url = "https://dev.to/androiddevperu/meetup-56-controlando-bluetooh-desde-0-3j27",
             thumbnail = "https://res.cloudinary.com/practicaldev/image/fetch/s--AL-Z6Dmp--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_800/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/xd3pk3kbay51di61bkiv.jpeg",
             description = "El 30 de octubre, tuvimos una charla virtual!, en nuestro meetup #56 en el cual Hansy Schmitt nos compartió sus conocimientos de Bluetooth."
+        )
+    ),
+}
+
+enum class Organizers(val data: Organizer) {
+    Eduardo(
+        Organizer(
+            name = "Eduardo",
+            lastName = "Medina",
+            photo = "organizer_edu.png",
+        )
+    ),
+    Bruno(
+        Organizer(
+            name = "Bruno",
+            lastName = "Aybar",
+            photo = "organizer_bruno.jpeg",
+        )
+    ),
+    Flavio(
+        Organizer(
+            name = "Jose Flavio",
+            lastName = "Quispe",
+            photo = "organizer_flavio.jpeg",
+        )
+    ),
+    Daniel(
+        Organizer(
+            name = "Daniel",
+            lastName = "Anaya",
+            photo = "organizer_daniel.jpeg",
+        )
+    ),
+    Freddy(
+        Organizer(
+            name = "Freddy",
+            lastName = "Lazo",
+            photo = "organizer_freddy.jpeg",
+        )
+    ),
+    Krum(
+        Organizer(
+            name = "Pedro",
+            lastName = "Rau",
+            alias = "Krum",
+            photo = "organizer_krum.jpeg",
+        )
+    ),
+    Josue(
+        Organizer(
+            name = "Josue",
+            lastName = "Durand",
+            photo = "organizer_josue.jpeg",
+        )
+    ),
+    Tohure(
+        Organizer(
+            name = "Carlo",
+            lastName = "Huaman",
+            alias = "Tohure",
+            photo = "organizer_tohure.jpeg",
+        )
+    ),
+}
+
+enum class LegacyOrganizers(val data: Organizer) {
+    Jonathan(
+        Organizer(
+            name = "Jonathan",
+            lastName = "Nolasco",
+            photo = "organizer_nolasco.jpeg",
         )
     ),
 }
