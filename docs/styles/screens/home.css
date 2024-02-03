@@ -1,7 +1,8 @@
 @import url('../components/quick-link.css');
 @import url('../components/card.css');
+@import url('../components/borderless-card.css');
+@import url('../components/shiny-card.css');
 @import url('../components/navbar.css');
-@import url('../components/blog-entry.css');
 @import url('../components/buttons.css');
 @import url('../components/organizers.css');
 
@@ -72,6 +73,10 @@
     background: #F8F9FA;
 }
 
+#save-the-date-section {
+    padding: 4em;
+}
+
 #quick-links-section {
     display: flex;
     flex-direction: row;
@@ -91,17 +96,17 @@
     padding-top: 0;
 }
 
-#blog-section {
+.grid-section {
     display: flex;
     padding-top: 4em;
     align-items: flex-start;
 }
 
-#blog-section #blog-section-header {
+.grid-section .grid-section-header {
     flex: 1;
 }
 
-#blog-section #blog-section-content {
+.grid-section .grid-section-content {
     flex: 2;
     padding: 2em;
     display: grid;
@@ -166,6 +171,8 @@
 
     #quick-links-section {
         flex-direction: column;
+        padding-left: 3em;
+        padding-right: 3em;
     }
 
     .quick-links-section-item {
@@ -182,17 +189,17 @@
         flex: 1;
     }
 
-    #blog-section {
+    .grid-section {
         display: flex;
         flex-direction: column;
         padding: 2em;
     }
 
-    #blog-section #blog-section-header {
-        margin-bottom: 1em;
+    .grid-section .grid-section-header {
+        margin-bottom: 2em;
     }
 
-    #blog-section #blog-section-content {
+    .grid-section .grid-section-content {
         padding: 0em;
         display: flex;
         flex-direction: column;
@@ -214,5 +221,22 @@
         padding: 0em;
         display: grid;
         grid-template-columns: 1fr 1fr;
+    }
+
+    .shiny-card {
+        background: url(/images/droid.svg) no-repeat center bottom -28px / 100px;
+        padding: 20px;
+        padding-bottom: 100px;
+        align-items: center;
+    }
+
+    .shiny-card h2 {
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .shiny-card span {
+        font-size: 14px;
+        text-align: center;
     }
 }
