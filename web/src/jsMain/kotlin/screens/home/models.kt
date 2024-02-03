@@ -22,3 +22,10 @@ data class Organizer(
     val fullName: String
         get() = "$name $lastName"
 }
+
+data class Playlist(
+    val title: String,
+    val url: String,
+    val thumbnail: String,
+    val description: String = "",
+)

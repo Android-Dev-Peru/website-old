@@ -2,6 +2,8 @@ package screens.home
 
 import components.*
 import data.Links
+import data.Playlists
+import data.RecentBlogs
 import kotlinx.html.*
 
 fun DIV.homeContent() {
@@ -9,6 +11,7 @@ fun DIV.homeContent() {
         topHeader()
         quickLinksSection()
         highlightSection()
+        playlistsSection()
         blogSection()
         organizersSection()
     }
@@ -46,19 +49,33 @@ private fun DIV.highlightSection() {
     }
 }
 
+private fun DIV.playlistsSection() {
+    customSection(id = "events-section", classes = "grid-section") {
+        div(classes = "grid-section-header") {
+            h2 { +"Playlists" }
+            p { +"No te pierdas todo el material exclusivo que la comunidad nos ha compartido a lo largo de lo años." }
+            primaryButton(text = "Síguenos en Youtube", href = Links.YouTube)
+        }
+        div(classes = "grid-section-content") {
+            playlists.forEach {
+                borderlessCard(content = it)
+            }
+        }
+    }
+
+}
+
 private fun DIV.blogSection() {
-    customSection(id = "blog-section", classes="alternate-background") {
-        div {
-            id = "blog-section-header"
+    customSection(id = "blog-section", classes = "grid-section", sectionClasses = "alternate-background") {
+        div(classes = "grid-section-header") {
             h2 { +"Artículos recientes" }
             p { +"¿Te perdiste algún evento? No hay problema - ponte al día con las últimas novedades de nuestra comunidad" }
             primaryButton(text = "Ver todos los artículos", href = Links.DevTo)
         }
 
-        div {
-            id = "blog-section-content"
+        div(classes = "grid-section-content") {
             recentBlogPosts.forEach {
-                blogEntry(entry = it, caption = "Artículo")
+                borderlessCard(it)
             }
         }
     }
@@ -80,7 +97,7 @@ private fun DIV.organizersSection() {
             }
         }
     }
-    customSection(id = "legacy-organizers-section", classes = "alternate-background") {
+    customSection(id = "legacy-organizers-section", sectionClasses = "alternate-background") {
         div(classes = "organizers-section legacy-organizers-section") {
             div {
                 id = "organizers-section-header"
@@ -97,9 +114,9 @@ private fun DIV.organizersSection() {
     }
 }
 
-private fun DIV.customSection(id: String, classes: String = "", content: DIV.()->Unit) {
-    section(classes) {
-        div(classes = "home-section") {
+private fun DIV.customSection(id: String, sectionClasses: String = "", classes: String = "", content: DIV.()->Unit) {
+    section(sectionClasses) {
+        div(classes = "home-section $classes") {
             this.id = id
             content()
         }
@@ -159,32 +176,25 @@ val highlightCards = listOf(
     ),
 )
 
-val recentBlogPosts = listOf(
-    BlogEntry(
-        title = "Meetup #57: Kotlin Multiplatform is Stable!",
-        url = "https://dev.to/androiddevperu/meetup-57-build-your-first-app-with-kmp-bp0",
-        thumbnail = "https://res.cloudinary.com/practicaldev/image/fetch/s--o8Vcpr03--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_800/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/p5edmwpvxcnryqohd17q.jpeg",
-        description = "El jueves 26 de noviembre de 2023 nos visitó el GDE Yury Camacho desde Bolivia para hablarnos sobre Kotlin Multiplatform.",
-    ),
-    BlogEntry(
-        title = "DevFest 2023 - GDG Open",
-        url = "https://dev.to/androiddevperu/devfest-2023-gdg-open-1b37",
-        thumbnail = "https://res.cloudinary.com/practicaldev/image/fetch/s--A7FMokQZ--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_800/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/x34agc51zzdtnt6x8jbw.jpeg",
-        description = "El 12 de noviembre de 2023, participamos en el DevFest 2023 del GDG Open, en donde elaboramos un taller sobre Jetpack Compose.",
-    ),
-    BlogEntry(
-        title = "Feria de comunidades en BCP",
-        url = "https://dev.to/androiddevperu/feria-de-comunidades-en-bcp-58df",
-        thumbnail = "https://res.cloudinary.com/practicaldev/image/fetch/s--4_TmxZwH--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_800/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/fm8vla3rsxaezcp0qvxp.jpeg",
-        description = "El 22 de noviembre tuvimos la oportunidad de participar en la feria de comunidades que organizó el BCP, donde participaron más de 400 personas",
-    ),
-    BlogEntry(
-        title = "Meetup #56: Bluetooth desde 0",
-        url = "https://dev.to/androiddevperu/meetup-56-controlando-bluetooh-desde-0-3j27",
-        thumbnail = "https://res.cloudinary.com/practicaldev/image/fetch/s--AL-Z6Dmp--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_800/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/xd3pk3kbay51di61bkiv.jpeg",
-        description = "El 30 de octubre, tuvimos una charla virtual!, en nuestro meetup #56 en el cual Hansy Schmitt nos compartió sus conocimientos de Bluetooth."
-    ),
-)
+val playlists = Playlists.entries.map {
+    BorderlessCard(
+        title = it.data.title,
+        url = it.data.url,
+        thumbnail = it.data.thumbnail,
+        description = it.data.description,
+        caption = "Playlist",
+    )
+}
+
+val recentBlogPosts = RecentBlogs.entries.map {
+    BorderlessCard(
+        title = it.data.title,
+        url = it.data.url,
+        thumbnail = it.data.thumbnail,
+        description = it.data.description,
+        caption = "Artículo",
+    )
+}
 
 val organizers = listOf(
     Organizer(

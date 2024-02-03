@@ -1,7 +1,7 @@
 @import url('../components/quick-link.css');
 @import url('../components/card.css');
+@import url('../components/borderless-card.css');
 @import url('../components/navbar.css');
-@import url('../components/blog-entry.css');
 @import url('../components/buttons.css');
 @import url('../components/organizers.css');
 
@@ -91,17 +91,17 @@
     padding-top: 0;
 }
 
-#blog-section {
+.grid-section {
     display: flex;
     padding-top: 4em;
     align-items: flex-start;
 }
 
-#blog-section #blog-section-header {
+.grid-section .grid-section-header {
     flex: 1;
 }
 
-#blog-section #blog-section-content {
+.grid-section .grid-section-content {
     flex: 2;
     padding: 2em;
     display: grid;
@@ -182,17 +182,17 @@
         flex: 1;
     }
 
-    #blog-section {
+    .grid-section {
         display: flex;
         flex-direction: column;
         padding: 2em;
     }
 
-    #blog-section #blog-section-header {
-        margin-bottom: 1em;
+    .grid-section .grid-section-header {
+        margin-bottom: 2em;
     }
 
-    #blog-section #blog-section-content {
+    .grid-section .grid-section-content {
         padding: 0em;
         display: flex;
         flex-direction: column;
