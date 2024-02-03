@@ -171,6 +171,8 @@
 
     #quick-links-section {
         flex-direction: column;
+        padding-left: 3em;
+        padding-right: 3em;
     }
 
     .quick-links-section-item {
