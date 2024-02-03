@@ -224,7 +224,7 @@
     }
 
     .shiny-card {
-        background: url(/images/droid.svg) no-repeat center bottom -28px / 100px;
+        background: url(../../images/droid.svg) no-repeat center bottom -28px / 100px;
         padding: 20px;
         padding-bottom: 100px;
         align-items: center;
