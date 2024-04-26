@@ -134,12 +134,12 @@ private fun DIV.customSection(id: String, sectionClasses: String = "", classes: 
 
 val highlightCards = listOf(
     CardContent(
-        title = "Meetup #59",
+        title = "Meetup #61",
         description = """
             Acompañanos en nuestro próximo meetup presencial + virtual.<br><br>
-            🗓 Fecha: miércoles 21 de febrero<br>
-            ⏰ Hora: 7PM 🇵🇪 🇨🇴<br>
-            🏢 Local: Globant<br>
+            🗓 Fecha: jueves 25 de abril<br>
+            ⏰ Hora: 7.30PM 🇵🇪 🇨🇴<br>
+            🏢 Local: Comunal Cavenecia (by Nearsure)<br>
         """.trimIndent(),
         image = "reunion.png",
         cta = "Regístrate",
